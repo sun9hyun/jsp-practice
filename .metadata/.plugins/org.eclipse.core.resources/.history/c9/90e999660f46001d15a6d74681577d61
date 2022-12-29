@@ -1,0 +1,32 @@
+package com.koreait.app.board.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.koreait.app.board.vo.BoardDTO;
+import com.koreait.app.board.vo.BoardVO;
+import com.koreait.mybatis.config.MyBatisConfig;
+
+public class BoardDAO {
+   SqlSessionFactory sqlSessionFactory = MyBatisConfig.getSqlsessionFactory();
+   SqlSession sqlSession;
+
+   public BoardDAO() {
+      sqlSession = sqlSessionFactory.openSession(true);
+   }
+   
+   public List<BoardDTO> selectAll() {
+      return sqlSession.selectList("Board.selectAll");
+   }
+   
+   public int selectCount() {
+	   return sqlSession.selectOne("Board.selectCount");
+   }
+}
+
+
+
+
+

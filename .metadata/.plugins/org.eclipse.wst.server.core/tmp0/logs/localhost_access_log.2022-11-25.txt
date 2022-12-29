@@ -1,0 +1,5 @@
+127.0.0.1 - - [25/Nov/2022:15:38:00 +0900] "GET / HTTP/1.1" 500 4049
+0:0:0:0:0:0:0:1 - - [25/Nov/2022:15:38:00 +0900] "GET /app/board/boardApply.jsp HTTP/1.1" 200 4194
+0:0:0:0:0:0:0:1 - - [25/Nov/2022:15:38:01 +0900] "GET /assets/images/fix/cosmosProfile.png HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [25/Nov/2022:15:38:01 +0900] "GET /assets/css/board/boardApply.css HTTP/1.1" 200 9262
+0:0:0:0:0:0:0:1 - - [25/Nov/2022:15:38:01 +0900] "GET /favicon.ico HTTP/1.1" 404 818

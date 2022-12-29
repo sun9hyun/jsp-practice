@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 7 elements from project &apos;product&apos;&#x0D;&#x0A;- Original project: &apos;product&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     cos.jar&#x0D;&#x0A;     jstl.jar&#x0D;&#x0A;     mybatis-3.5.10.jar&#x0D;&#x0A;     mysql-connector-java-8.0.29.jar&#x0D;&#x0A;     org.json.jar&#x0D;&#x0A;     standard.jar&#x0D;&#x0A;     tomcat-dbcp.jar" description="Delete elements" element1="WebContent/WEB-INF/lib/org.json.jar" element2="WebContent/WEB-INF/lib/tomcat-dbcp.jar" element3="WebContent/WEB-INF/lib/jstl.jar" element4="WebContent/WEB-INF/lib/mybatis-3.5.10.jar" element5="WebContent/WEB-INF/lib/mysql-connector-java-8.0.29.jar" element6="WebContent/WEB-INF/lib/standard.jar" element7="WebContent/WEB-INF/lib/cos.jar" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="7" stamp="1665899561853" subPackages="false" version="1.0"/>
+</session>

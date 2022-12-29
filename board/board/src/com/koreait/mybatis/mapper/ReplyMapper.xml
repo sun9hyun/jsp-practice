@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Reply">
+
+<!-- 댓글 조회 -->
+	<select id="selectAll" parameterType = "_int" resultType = "replyDTO"> <!-- 파라미터 값 보드넘버 받아옴 (_int) 기본자료형-->
+		select reply_number,reply_content,m.member_number,board_number,member_id,reply_date
+		from tbl_member m join tbl_reply r 
+		on board_number = #{boardNumber} and m.member_number = r.member_number
+		order by reply_date desc
+	</select>
+	
+<!-- 댓글 등록 -->
+	<insert id= "insert" parameterType = "replyVO"> <!-- 테이블에 없는걸 추가할 때 DTO -->
+		insert into tbl_reply (reply_content, member_number, board_number)
+		values (#{replyContent}, #{memberNumber}, #{boardNumber})
+	</insert>
+	 
+<!-- 댓글 삭제 -->
+	<delete id="delete" parameterType = "_int">
+		delete from tbl_reply where reply_number = #{replyNumber}
+	</delete>
+	
+<!-- 댓글 수정 -->
+	<update id = "update" parameterType = "replyVO">
+		update tbl_reply 
+		set reply_content = #{replyContent}
+		where reply_number = #{replyNumber}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

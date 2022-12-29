@@ -1,0 +1,110 @@
+package com.koreait.app.member;
+
+import java.io.IOException;
+import java.util.Base64;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.koreait.app.Execute;
+import com.koreait.app.Result;
+import com.koreait.app.member.dao.MemberDAO;
+import com.koreait.app.member.vo.MemberVO;
+
+public class LoginOkController implements Execute {
+	@Override
+	public Result execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		MemberDAO memberDAO = new MemberDAO();
+		MemberVO memberVO = new MemberVO();
+		Result result = new Result();
+		HttpSession session = req.getSession();
+		int memberNumber = 0;
+		
+		String memberId = req.getParameter("memberId");
+		String memberPw = req.getParameter("memberPw");
+		boolean saveId = req.getParameter("saveId") != null;
+		boolean autoLogin = req.getParameter("autoLogin") != null;
+		
+		if(autoLogin) {
+			if(req.getHeader("Cookie") != null) {
+				for(Cookie cookie : req.getCookies()) {
+					if(cookie.getName().equals("memberId")) {
+						memberId= cookie.getValue();
+					}
+					if(cookie.getName().equals("memberPw")) {
+						memberPw = new String(Base64.getDecoder().decode(cookie.getValue().getBytes()));
+					}
+				}
+			}
+		}
+		
+		memberPw = new String(Base64.getEncoder().encode(memberPw.getBytes()));
+		
+		memberVO.setMemberId(memberId);
+		memberVO.setMemberPw(memberPw);
+		
+		try {
+			memberNumber = memberDAO.login(memberVO);
+//			로그인 성공
+			session.setAttribute("memberNumber", memberNumber);
+			
+//			아이디 저장
+			if(saveId) {
+				Cookie cookieMemberId = new Cookie("memberId", memberId);
+				
+				cookieMemberId.setMaxAge(60*60*24*365);
+				
+				resp.addCookie(cookieMemberId);
+				
+			}else {
+				if(req.getHeader("Cookie") != null) {
+					for(Cookie cookie : req.getCookies()) {
+						if(cookie.getName().equals("memberId")) {
+							cookie.setMaxAge(0);
+							resp.addCookie(cookie);
+						}
+					}
+				}
+			}
+			
+//			자동 로그인
+			if(autoLogin) {
+				Cookie cookieMemberId = new Cookie("memberId", memberId);
+				Cookie cookieMemberPw = new Cookie("memberPw", memberPw);
+				
+				cookieMemberId.setMaxAge(60*60*24*365);
+				cookieMemberPw.setMaxAge(60*60*24*365);
+				
+				resp.addCookie(cookieMemberId);
+				resp.addCookie(cookieMemberPw);
+				
+			}else if(!saveId) {
+				if(req.getHeader("Cookie") != null) {
+					for(Cookie cookie : req.getCookies()) {
+						if(cookie.getName().equals("memberId") || cookie.getName().equals("memberPw")) {
+							cookie.setMaxAge(0);
+							resp.addCookie(cookie);
+						}
+					}
+				}
+			}
+			
+			result.setRedirect(true);
+			result.setPath(req.getContextPath() + "/board/listOk.bo");
+			
+			
+		} catch (Exception e) {
+//			로그인 실패
+			result.setRedirect(false);
+			result.setPath("/member/login.me?login=false");
+		}
+		 
+		return result;
+	}
+}
+
+
+

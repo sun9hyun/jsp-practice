@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context docBase="C:\gb_0900_csh\jsp\workspace\cosmos-project\WebContent" path="" reloadable="true" source="org.eclipse.jst.jee.server:cosmos-project"><Resources><PreResources base="C:\gb_0900_csh\jsp\workspace\cosmos-project\build\classes" classLoaderOnly="false" className="org.apache.catalina.webresources.DirResourceSet" internalPath="/" webAppMount="/WEB-INF/classes"/></Resources></Context>

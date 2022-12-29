@@ -1,0 +1,5 @@
+package com.koreadit.app.board.vo;
+
+public class BoardDTO {
+
+}

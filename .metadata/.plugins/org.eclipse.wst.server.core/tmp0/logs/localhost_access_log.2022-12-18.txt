@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/app/board/list.jsp HTTP/1.1" 200 4748
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/assets/css/main.css HTTP/1.1" 200 131286
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/images/boardMain.png HTTP/1.1" 200 85277
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/assets/js/jquery.min.js HTTP/1.1" 200 88145
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/assets/js/browser.min.js HTTP/1.1" 200 1851
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/assets/js/util.js HTTP/1.1" 200 12433
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/assets/js/breakpoints.min.js HTTP/1.1" 200 2439
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/assets/js/main.js HTTP/1.1" 200 6373
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/assets/css/fontawesome-all.min.css HTTP/1.1" 200 56251
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:06 +0900] "GET /board/assets/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 75440
+0:0:0:0:0:0:0:1 - - [18/Dec/2022:00:00:12 +0900] "GET /board/board/write.bo HTTP/1.1" 404 835

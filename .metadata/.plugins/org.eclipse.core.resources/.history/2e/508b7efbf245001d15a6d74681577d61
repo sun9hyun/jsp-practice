@@ -1,0 +1,5 @@
+package com.koreait.app.member;
+
+public class LogoutController {
+
+}
